@@ -1,0 +1,24 @@
+{
+    "name": "Network.Scripts",
+    "rootNamespace": "",
+    "references": [
+        "UniRx",
+        "BestHTTP",
+        "GameFoundation.Models",
+        "GameFoundation.Utilities",
+        "GameFoundation.Script",
+        "UniTask",
+        "Zenject-Source",
+        "Zenject-Signals",
+        "com.Tivadar.Best.HTTP"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
