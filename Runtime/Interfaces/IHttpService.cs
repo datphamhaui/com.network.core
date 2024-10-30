@@ -27,7 +27,7 @@ namespace GameFoundation.Scripts.Network.WebService
         /// <summary>Download from <paramref name="address"/> to <paramref name="filePath"/>, download progress will be updated into <paramref name="onDownloadProgress"/>.</summary>
         UniTask Download(string address, string filePath, OnDownloadProgressDelegate onDownloadProgress);
 
-        UniTask<byte[]> DownloadAndReadStreaming(string address, OnDownloadProgressDelegate onDownloadProgress, CancellationToken cancellationToken);
+        UniTask<byte[]> DownloadAndReadStreaming(string address, OnDownloadProgressDelegate onDownloadProgress);
 
         /// <summary>Return the real download path.</summary>
         string GetDownloadPath(string path);

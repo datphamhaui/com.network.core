@@ -315,24 +315,15 @@
             }
         }
 
-        public async UniTask<byte[]> DownloadAndReadStreaming(string address, OnDownloadProgressDelegate onDownloadProgress, CancellationToken cancellationToken)
+        public async UniTask<byte[]> DownloadAndReadStreaming(string address, OnDownloadProgressDelegate onDownloadProgress)
         {
             var response = new byte[] { };
             var request  = new HTTPRequest(new Uri(address));
             request.TimeoutSettings.Timeout             =  TimeSpan.FromSeconds(this.GetDownloadTimeout());
             request.DownloadSettings.OnDownloadProgress =  (httpRequest, downloaded, length) => onDownloadProgress(downloaded, length);
             request.DownloadSettings.OnDownloadStarted  += OnData;
-            request.DownloadSettings.DisableCache       =  true;
-
-            try
-            {
-                await request.GetHTTPResponseAsync(cancellationToken);
-            }
-            catch (OperationCanceledException)
-            {
-                // Handle the cancellation
-                return response;
-            }
+            // request.DownloadSettings.DisableCache       =  true;
+            await request.GetHTTPResponseAsync();
 
             void OnData(HTTPRequest req, HTTPResponse resp, DownloadContentStream stream)
             {
